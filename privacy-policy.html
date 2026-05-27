@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tell Da — Privacy Policy</title>
+  <meta name="description" content="Privacy policy for Tell Da — pay-per-use YouTube summariser. Open source, privacy-first, no ads.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
+  <style>
+    :root {
+      --cream: #FBF5EE;
+      --ink: #1B1410;
+      --ink-soft: #3A2A22;
+      --muted: #8A766A;
+      --coral: #C7421E;
+      --paper: #F6EEE3;
+      --hairline: rgba(27, 20, 16, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--coral);
+      margin: 36px 0 12px;
+      letter-spacing: -0.2px;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+      margin: 24px 0 8px;
+    }
+    p { margin: 0 0 14px; color: var(--ink); }
+    ul { margin: 0 0 16px; padding-left: 22px; }
+    li { margin-bottom: 8px; }
+    strong { font-weight: 700; color: var(--ink); }
+    a { color: var(--coral); text-decoration: underline; }
+    a:hover { color: var(--ink); }
+    .updated {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 28px;
+    }
+    .callout {
+      background: var(--paper);
+      border-left: 3px solid var(--coral);
+      padding: 14px 18px;
+      border-radius: 10px;
+      margin: 0 0 28px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid var(--hairline);
+      margin: 36px 0;
+    }
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--hairline);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+    footer .brand {
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: 0.4px;
+    }
+    @media (max-width: 480px) {
+      .wrap { padding: 32px 18px 48px; }
+      h1 { font-size: 26px; }
+      h2 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Tell Da — Privacy Policy</h1>
+    <p class="updated">Last updated: 26 May 2026</p>
+
+    <p>Tell Da ("Tell Da", "we", "us") is an open-source Android app that summarises YouTube videos using transcript text plus the Anthropic Claude API. It is built and operated by <strong>Anish Sood</strong>, a solo indie developer trading as <strong>Gottila</strong> ("Don't Pay For X · 01"). This policy explains what data the app handles, why, and how to remove it.</p>
+
+    <p>Contact: <a href="mailto:soodanish.06@gmail.com">soodanish.06@gmail.com</a></p>
+
+    <hr>
+
+    <h2>What we collect</h2>
+    <p>We collect only what's needed to run the app:</p>
+    <ul>
+      <li><strong>Google account identifiers</strong> — your Google account ID (subject identifier) and email address, obtained via Google Sign-In when you log in.</li>
+      <li><strong>Summaries you create</strong> — the YouTube URL you paste, the video title, the generated summary text, and any notes you attach to it. Stored server-side so they sync across your devices.</li>
+      <li><strong>Wallet balance and purchase tokens</strong> — the running balance of your in-app wallet (in Indian paise) and the Google Play purchase tokens we receive when you top up. Tokens are used to verify purchases with Google and credit your wallet.</li>
+      <li><strong>Crash and error logs</strong> — none are currently collected. We reserve the right to add anonymous crash reporting (e.g. Firebase Crashlytics or Sentry) in a future version; this policy will be updated before any such SDK ships.</li>
+    </ul>
+
+    <h2>What we don't collect</h2>
+    <ul>
+      <li><strong>No analytics SDKs.</strong> No Google Analytics, no Firebase Analytics, no Mixpanel, no third-party event tracking.</li>
+      <li><strong>No advertising networks.</strong> Tell Da contains no ads and ships no ad SDKs.</li>
+      <li><strong>No third-party trackers</strong> of any kind.</li>
+      <li><strong>No access to your contacts, location, camera, microphone, photos, calendar, SMS, or call logs.</strong> The app does not request these permissions.</li>
+      <li><strong>No background activity</strong> beyond what Android requires to deliver Google Play purchase callbacks.</li>
+    </ul>
+
+    <h2>How we use what we collect</h2>
+    <ul>
+      <li><strong>Authenticate you</strong> — your Google account ID is the primary key for your account on our server.</li>
+      <li><strong>Generate summaries</strong> — when you submit a YouTube URL, we fetch the publicly-available transcript and send it to the Anthropic Claude API to produce a summary. The transcript text and any prompt context leave our servers and are processed by Anthropic under their API terms.</li>
+      <li><strong>Persist your library</strong> — your summaries and notes are stored server-side so you can access them across devices and reinstalls.</li>
+      <li><strong>Verify Google Play purchases</strong> — purchase tokens are sent to our server, which validates them with Google Play, then credits your wallet in paise.</li>
+    </ul>
+
+    <h2>Third parties we share data with</h2>
+    <p>We share the minimum necessary with these services:</p>
+    <ul>
+      <li><strong>Google</strong> — for Sign-In (your account ID and email) and Google Play Billing (purchase tokens). Governed by Google's privacy policy.</li>
+      <li><strong>Anthropic</strong> — when you generate a summary, the transcript text and the prompt context are sent to Anthropic's Claude API. Per Anthropic's API policy as of 2026, API inputs and outputs are not used to train their models. Their handling of API data is governed by Anthropic's privacy policy and commercial terms.</li>
+      <li><strong>YouTube</strong> — we fetch publicly-available video transcripts via the open-source <code>youtube-transcript-api</code> library. We do <strong>not</strong> sign in to YouTube on your behalf, do not have access to your YouTube account, and only request the same transcript data that the YouTube site exposes publicly.</li>
+    </ul>
+    <p>We do not sell, rent, or share your data with any other third parties.</p>
+
+    <h2>Retention</h2>
+    <ul>
+      <li><strong>Summaries and notes</strong> — retained until you delete them individually from the History screen, or until you delete your account.</li>
+      <li><strong>Google Play purchase tokens</strong> — retained as long as legally required for billing records (typically up to 7 years under Indian tax law).</li>
+      <li><strong>Account record</strong> — retained until you request deletion.</li>
+    </ul>
+
+    <h2>Your rights</h2>
+    <p>You can:</p>
+    <ul>
+      <li><strong>See your data</strong> — your saved summaries are visible in the History screen, and your account email and wallet balance are visible in Settings.</li>
+      <li><strong>Delete individual summaries</strong> — swipe or long-press an entry in History to remove it.</li>
+      <li><strong>Delete your entire account</strong> — go to <strong>Settings → Delete my account</strong>. This opens your email app with a pre-filled deletion request to <a href="mailto:soodanish.06@gmail.com">soodanish.06@gmail.com</a>. We process deletion requests within 30 days. (A fully in-app, one-tap deletion is planned for a future release and will replace the email flow.)</li>
+    </ul>
+    <p>Deletion removes your account record, summaries, notes, wallet balance, and any wallet history. Google Play purchase records may be retained where required by law.</p>
+
+    <h2>Children</h2>
+    <p>Tell Da is rated 13+ on the Google Play Store. We do not knowingly collect data from children under 13. If you believe a child has signed up, email <a href="mailto:soodanish.06@gmail.com">soodanish.06@gmail.com</a> and we'll delete the account.</p>
+
+    <h2>Security</h2>
+    <ul>
+      <li>All network traffic between the app and our servers uses HTTPS (TLS 1.2+).</li>
+      <li>Your Google session token is stored on-device using Android's encrypted storage (Keystore-backed) via <code>flutter_secure_storage</code>.</li>
+      <li>We do not store your Google password — sign-in is delegated to Google.</li>
+    </ul>
+
+    <h2>Changes to this policy</h2>
+    <p>We will update both the in-app version (bundled with the app) and this hosted version together. Material changes will be surfaced on next sign-in. The "Last updated" date at the top of this document always reflects the latest revision.</p>
+
+    <h2>Contact</h2>
+    <p>Questions, complaints, or data requests: <a href="mailto:soodanish.06@gmail.com">soodanish.06@gmail.com</a></p>
+
+    <footer>
+      <div class="brand">Tell Da · Don't Pay For X · 01</div>
+      <div>Open source · Privacy-first · No ads · No subscriptions</div>
+      <div style="margin-top: 8px;"><a href="mailto:soodanish.06@gmail.com">soodanish.06@gmail.com</a></div>
+    </footer>
+  </main>
+</body>
+</html>
