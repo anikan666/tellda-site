@@ -1,0 +1,9 @@
+services:
+  tellda-site:
+    image: nginx:alpine
+    container_name: tellda-site
+    restart: unless-stopped
+    ports:
+      - "5053:80"
+    volumes:
+      - .:/usr/share/nginx/html:ro
