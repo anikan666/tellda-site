@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tell Da — Pay-per-use YouTube summariser</title>
+  <meta name="description" content="Tell Da turns YouTube videos into bulleted summaries with timestamp citations. Pay-per-use. No subscriptions, no ads. With a pet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+  <style>
+    :root {
+      --cream: #FBF5EE;
+      --paper: #F6EEE3;
+      --ink: #1B1410;
+      --ink-soft: #3A2A22;
+      --muted: #8A766A;
+      --coral: #C7421E;
+      --coral-soft: #E89B7E;
+      --hairline: rgba(27, 20, 16, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--coral); text-decoration: none; }
+    a:hover { color: var(--ink); text-decoration: underline; }
+
+    nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: -0.4px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .nav-links a { color: var(--ink-soft); }
+
+    .hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 80px 24px 64px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 9vw, 96px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin: 0 0 12px;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .hero .tagline {
+      font-size: clamp(18px, 2.4vw, 22px);
+      font-weight: 600;
+      color: var(--ink-soft);
+      max-width: 640px;
+      margin: 0 auto 36px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--coral);
+      color: var(--cream);
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.2px;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .cta-btn:hover {
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .cta-btn.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 2px solid var(--ink);
+    }
+    .cta-btn.ghost:hover { background: var(--ink); color: var(--cream); }
+    .cta-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .features {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 24px 72px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .feature {
+      background: var(--paper);
+      border-radius: 18px;
+      padding: 28px 24px;
+      border: 1px solid var(--hairline);
+    }
+    .feature .label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--coral);
+      margin-bottom: 10px;
+    }
+    .feature h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      letter-spacing: -0.3px;
+    }
+    .feature p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .voice {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 24px 24px 72px;
+    }
+    .voice .eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--coral);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .voice h2 {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      margin: 0 0 28px;
+      text-align: center;
+      color: var(--ink);
+    }
+    .voice-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .voice-list li {
+      background: var(--cream);
+      border: 1px solid var(--hairline);
+      border-left: 3px solid var(--coral);
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    .promise {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .promise-inner { max-width: 720px; margin: 0 auto; }
+    .promise h2 {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      margin: 0 0 16px;
+    }
+    .promise p {
+      font-size: 16px;
+      color: var(--coral-soft);
+      margin: 0 0 28px;
+      line-height: 1.55;
+    }
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .promise-chip {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    footer {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 24px 48px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer .brand {
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: 0.4px;
+    }
+    footer .links {
+      display: flex;
+      gap: 18px;
+    }
+    footer .links a { color: var(--ink-soft); font-weight: 700; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 56px 20px 40px; }
+      .voice h2, .promise h2 { font-size: 24px; }
+      nav { padding: 18px 20px 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">Tell Da</div>
+    <div class="nav-links">
+      <a href="privacy_policy.html">Privacy</a>
+      <a href="delete_my_account.html">Delete account</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Tell Da</h1>
+    <p class="tagline">A pay-per-use YouTube summariser. No subscriptions, no ads. Although you will have a pet that cheers you on.</p>
+    <div class="cta-row">
+      <a class="cta-btn" href="mailto:soodanish.06@gmail.com?subject=Tell%20Da%20%E2%80%94%20beta%20interest">Email for the beta</a>
+      <a class="cta-btn ghost" href="privacy_policy.html">How we handle your data</a>
+    </div>
+    <p class="cta-sub">Android · open source · in internal testing</p>
+  </header>
+
+  <section class="features">
+    <div class="feature">
+      <div class="label">Summarise</div>
+      <h3>Paste a link. Get the gist.</h3>
+      <p>Tell Da fetches the transcript, runs Claude Sonnet against it, and gives you back a bulleted summary with timestamp citations you can tap to jump straight into the video.</p>
+    </div>
+    <div class="feature">
+      <div class="label">Pay-per-use</div>
+      <h3>No subscriptions.</h3>
+      <p>You pay the actual model cost plus a small margin — shown up front before each summary. A typical short video costs less than the price of a coffee biscuit.</p>
+    </div>
+    <div class="feature">
+      <div class="label">The pet</div>
+      <h3>Da, the axolotl.</h3>
+      <p>Da lives on your home screen and reacts to how you use the app. Pleased when you stay within your weekly cap. Asleep when you blow past it. Not gamified. Just opinionated.</p>
+    </div>
+    <div class="feature">
+      <div class="label">Weekly cap</div>
+      <h3>The product wants you to use it less.</h3>
+      <p>You set a weekly video cap. The app enforces it. The goal isn't to save money — it's to push back against the algorithm. Hit your cap; rest until Monday.</p>
+    </div>
+  </section>
+
+  <section class="voice">
+    <div class="eyebrow">What Da sounds like</div>
+    <h2>A small, opinionated roommate.</h2>
+    <ul class="voice-list">
+      <li>"Ready when you are."</li>
+      <li>"First one this week. Nice."</li>
+      <li>"You're picking your spots. Da approves."</li>
+      <li>"Close to the cap. Save some for later?"</li>
+      <li>"Cap hit. Da is napping until Monday."</li>
+    </ul>
+  </section>
+
+  <section class="promise">
+    <div class="promise-inner">
+      <h2>Your data. Your sign-in.</h2>
+      <p>Sign in with Google. Your summaries and notes are stored server-side so they sync across your devices. We don't sell, share, or use your data to train models. No ads, no analytics SDKs, no third-party trackers.</p>
+      <div class="promise-grid">
+        <div class="promise-chip">No ads</div>
+        <div class="promise-chip">No subscriptions</div>
+        <div class="promise-chip">No analytics</div>
+        <div class="promise-chip">Open source</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="brand">Tell Da · Don't Pay For X · 01</div>
+      <div style="margin-top: 6px;">Built by <a href="mailto:soodanish.06@gmail.com">Anish Sood</a>, trading as Gottila.</div>
+    </div>
+    <div class="links">
+      <a href="privacy_policy.html">Privacy Policy</a>
+      <a href="delete_my_account.html">Delete account</a>
+      <a href="mailto:soodanish.06@gmail.com">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
