@@ -146,44 +146,48 @@
       line-height: 1.55;
     }
 
-    .voice {
-      max-width: 880px;
+    .da-cta {
+      max-width: 720px;
       margin: 0 auto;
       padding: 24px 24px 72px;
-    }
-    .voice .eyebrow {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--coral);
       text-align: center;
-      margin-bottom: 16px;
     }
-    .voice h2 {
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: -0.6px;
-      margin: 0 0 28px;
-      text-align: center;
-      color: var(--ink);
-    }
-    .voice-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
-    }
-    .voice-list li {
-      background: var(--cream);
+    .da-cta-inner {
+      background: var(--paper);
       border: 1px solid var(--hairline);
-      border-left: 3px solid var(--coral);
-      padding: 14px 18px;
-      border-radius: 10px;
-      font-size: 15px;
-      color: var(--ink-soft);
-      font-style: italic;
+      border-radius: 24px;
+      padding: 40px 28px 36px;
+      position: relative;
+    }
+    .da-portrait {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: var(--cream);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin: 0 auto 18px;
+      /* TODO: replace with Da's actual artwork from designer */
+    }
+    .da-quote {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      max-width: 520px;
+      margin: 0 auto 8px;
+      line-height: 1.4;
+      letter-spacing: -0.3px;
+    }
+    .da-attrib {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+      margin: 0 0 24px;
     }
 
     .promise {
@@ -246,7 +250,8 @@
 
     @media (max-width: 600px) {
       .hero { padding: 56px 20px 40px; }
-      .voice h2, .promise h2 { font-size: 24px; }
+      .da-quote { font-size: 18px; }
+      .promise h2 { font-size: 24px; }
       nav { padding: 18px 20px 0; }
     }
   </style>
@@ -274,35 +279,32 @@
     <div class="feature">
       <div class="label">Summarise</div>
       <h3>Paste a link. Get the gist.</h3>
-      <p>Tell Da fetches the transcript, runs Claude Sonnet against it, and gives you back a bulleted summary with timestamp citations you can tap to jump straight into the video.</p>
+      <p>Simple AI tools turn your YouTube videos into a clean summary and transcript. Paste the URL, get the bullets, tap a timestamp to jump straight into the moment that matters.</p>
     </div>
     <div class="feature">
       <div class="label">Pay-per-use</div>
-      <h3>No subscriptions.</h3>
-      <p>You pay the actual model cost plus a small margin — shown up front before each summary. A typical short video costs less than the price of a coffee biscuit.</p>
+      <h3>Pay only for what you use.</h3>
+      <p>No subscription. No lock-in. We're built to be deleted the moment you've got what you came for.</p>
     </div>
     <div class="feature">
-      <div class="label">The pet</div>
-      <h3>Da, the axolotl.</h3>
-      <p>Da lives on your home screen and reacts to how you use the app. Pleased when you stay within your weekly cap. Asleep when you blow past it. Not gamified. Just opinionated.</p>
+      <div class="label">Your companion</div>
+      <h3>Meet Da, your doggo.</h3>
+      <p>Da lives on your home screen and quietly looks out for you — there to make sure you don't use the app more than you need to.</p>
     </div>
     <div class="feature">
       <div class="label">Weekly cap</div>
-      <h3>The product wants you to use it less.</h3>
-      <p>You set a weekly video cap. The app enforces it. The goal isn't to save money — it's to push back against the algorithm. Hit your cap; rest until Monday.</p>
+      <h3>A soft limit. Not a wall.</h3>
+      <p>Set a weekly cap. You can keep going past it — nothing stops you. But Da will be disappointed. Be mindful.</p>
     </div>
   </section>
 
-  <section class="voice">
-    <div class="eyebrow">What Da sounds like</div>
-    <h2>A small, opinionated roommate.</h2>
-    <ul class="voice-list">
-      <li>"Ready when you are."</li>
-      <li>"First one this week. Nice."</li>
-      <li>"You're picking your spots. Da approves."</li>
-      <li>"Close to the cap. Save some for later?"</li>
-      <li>"Cap hit. Da is napping until Monday."</li>
-    </ul>
+  <section class="da-cta">
+    <div class="da-cta-inner">
+      <div class="da-portrait" aria-hidden="true">Da</div>
+      <p class="da-quote">"Why not give it a go? Grab us on the Play Store."</p>
+      <p class="da-attrib">— Da</p>
+      <a class="cta-btn" href="mailto:soodanish.06@gmail.com?subject=Tell%20Da%20%E2%80%94%20beta%20interest">Email for the beta · Play Store coming soon</a>
+    </div>
   </section>
 
   <section class="promise">
